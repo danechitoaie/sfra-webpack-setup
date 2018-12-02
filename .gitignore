@@ -1,0 +1,19 @@
+# NodeJS
+/node_modules/
+
+# OS
+.DS_Store
+
+# Visual Studio Code
+/.vscode/
+
+# SonarLint
+/.sonarlint/
+
+# DW Upload
+/dw.json
+/cartridges/dw.json
+
+# Compiled files
+#/cartridges/app_cartridge/cartridge/static/*/js/
+#/cartridges/app_cartridge/cartridge/static/*/css/
