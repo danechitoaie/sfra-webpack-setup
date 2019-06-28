@@ -43,10 +43,13 @@ class WebpackBundle {
             bundle.entry[key] = f;
         });
 
-        glob.sync(path.resolve(clientPath, "*", "css", "**", "*.scss"))
+        glob.sync(path.resolve(clientPath, "*", "scss", "**", "*.scss"))
             .filter(f => !path.basename(f).startsWith("_"))
             .forEach(f => {
-                const key = path.join(path.dirname(path.relative(clientPath, f)), path.basename(f, ".scss"));
+                const regExp = new RegExp(`^(.+?)${path.sep}scss${path.sep}`);
+                const key = path
+                    .join(path.dirname(path.relative(clientPath, f)), path.basename(f, ".scss"))
+                    .replace(regExp, `$1${path.sep}css${path.sep}`);
                 bundle.entry[key] = f;
             });
 
